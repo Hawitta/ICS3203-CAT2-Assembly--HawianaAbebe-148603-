@@ -137,16 +137,11 @@ This will create an executable file sensor.
 The program will print a sensor reading value, and based on this value, it will trigger different actions (e.g., if the reading is above a threshold, it will print "ALERT").
 
 # Troubleshooting
-Permissions Issue: If you encounter issues running the executables, make sure the file has executable permissions:
 
-```bash
-chmod +x <executable_name>
-```
-Missing Tools: If nasm or ld is not found, ensure they are installed correctly:
+While debugging the array.asm program, one of the key challenges was ensuring that the array reversal was done in place, as no additional memory could be used to store the reversed array. The logic required careful manipulation of the array indices and register values to swap elements in-place. Additionally, there were issues with properly handling the user input and ensuring that the array was correctly populated. Debugging was also tricky when verifying that the program correctly printed the reversed array, especially when handling output formatting to avoid misinterpretations in the displayed results, such as no space between the numbers.
 
-For nasm: You can install it using sudo apt-get install nasm on Debian-based distributions like Ubuntu.
-For ld (GNU Linker): It’s typically pre-installed on most Linux distributions. If not found, you may need to install binutils.
-Errors During Compilation:
+Debugging factorial.asm presented a different set of challenges, primarily with correctly implementing the factorial calculation logic using a loop. Ensuring that the loop iterated the correct number of times and that the result was accurately calculated required careful attention to register management and proper initialization. Another challenge was managing the data type overflow when working with large factorial values, especially for numbers greater than 20. Debugging also required verifying that the correct output was displayed after the calculation, as issues often arose with the format of the output or with incorrect handling of edge cases like factorial(0).
 
-Undefined Symbols: If you see errors like undefined reference, check if there are any syntax errors in the assembly code.
-Syntax Issues: Ensure correct syntax (e.g., register usage, operand size, etc.) according to the NASM documentation.
+Debugging sensor.asm was relatively straightforward compared to other programs. The primary challenge lay in ensuring the correct handling of sensor readings and their corresponding actions based on user input. The program required minimal changes in the logic itself but did need some adjustments in how the messages were displayed to the user. Initially, there were issues with the clarity and format of the output, but after refining the way messages were shown to the user, the program worked as expected. The focus was primarily on improving user interaction rather than troubleshooting complex logic.
+
+Debugging controlflow.asm involved addressing several nuances related to the control flow structure. One of the main challenges was ensuring that the program correctly classified input as "POSITIVE", "NEGATIVE", or "ZERO" based on the number entered by the user. This required precise comparisons and jumps in assembly code, which was crucial for proper program execution. Another challenge was handling edge cases like zero input and ensuring the output displayed the correct classification without errors. After several iterations, the logic was fine-tuned, and the program successfully classified numbers based on the input, but it required careful testing and validation to handle all possible scenarios correctly.
