@@ -60,6 +60,7 @@ Description:
 This program takes an array of integers as input, reverses it in place, and outputs the reversed array.
 
 Steps to Run:
+
 ### 1. Assemble the array.asm file:
 
 ```bash
@@ -82,6 +83,7 @@ This will create an executable file array.
 You will be prompted to enter 5 integers. The program will output the reversed array.
 
 ## 3. Task 3
+
 Description:
 This program calculates the factorial of a given number.
 
@@ -111,6 +113,7 @@ Copy code
 You will be prompted to enter a number. The program will output the factorial of that number.
 
 ## 4. Task 4
+
 Description:
 This program simulates sensor readings and performs actions based on input values (e.g., if the value is above a threshold, it prints "ALERT").
 
@@ -118,7 +121,6 @@ Steps to Run:
 ### 1. Assemble the sensor.asm file:
 
 ```bash
-Copy code
 nasm -f elf64 -o sensor.o sensor.asm
 ```
 This will create an object file sensor.o.
@@ -141,7 +143,6 @@ The program will print a sensor reading value, and based on this value, it will 
 Permissions Issue: If you encounter issues running the executables, make sure the file has executable permissions:
 
 ```bash
-Copy code
 chmod +x <executable_name>
 ```
 Missing Tools: If nasm or ld is not found, ensure they are installed correctly:
