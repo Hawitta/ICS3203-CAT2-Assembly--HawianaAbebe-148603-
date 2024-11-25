@@ -91,7 +91,6 @@ Steps to Run:
 ### 1. Assemble the factorial.asm file:
 
 ```bash
-Copy code
 nasm -f elf64 -o factorial.o factorial.asm
 ```
 This will create an object file factorial.o.
@@ -99,7 +98,6 @@ This will create an object file factorial.o.
 ### 2. Link the object file to create an executable:
 
 ```bash
-Copy code
 ld -o factorial factorial.o
 ```
 This will create an executable file factorial.
@@ -107,7 +105,6 @@ This will create an executable file factorial.
 ### 3. Run the executable:
 
 ```bash
-Copy code
 ./factorial
 ```
 You will be prompted to enter a number. The program will output the factorial of that number.
