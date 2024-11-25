@@ -15,18 +15,21 @@ You can install `nasm` and `ld` via your package manager if they are not already
 ### For Ubuntu/Debian-based systems:
 ```bash
 sudo apt update
+
 sudo apt install nasm
+
 sudo apt install binutils
 ```
 
 ### For RedHat/CentOS-based systems:
 ```bash
 sudo yum install nasm
+
 sudo yum install binutils
 ```
 
 
-## Steps to Run Each Program
+# Steps to Run Each Program
 
 ## Task 1 (controlflow.asm)
 
