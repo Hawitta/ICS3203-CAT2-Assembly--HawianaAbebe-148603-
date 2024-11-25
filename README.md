@@ -19,3 +19,8 @@ sudo apt install nasm
 sudo apt install binutils
 
 
+### For RedHat/CentOS-based systems:
+```bash
+Copy code
+sudo yum install nasm
+sudo yum install binutils
