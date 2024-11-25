@@ -17,10 +17,11 @@ You can install `nasm` and `ld` via your package manager if they are not already
 sudo apt update
 sudo apt install nasm
 sudo apt install binutils
-
+```
 
 ### For RedHat/CentOS-based systems:
 ```bash
 Copy code
 sudo yum install nasm
 sudo yum install binutils
+```
