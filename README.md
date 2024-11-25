@@ -25,8 +25,10 @@ sudo yum install nasm
 sudo yum install binutils
 ```
 
+
 ## Steps to Run Each Program
-## 1. Task 1 (controlflow.asm)
+
+## Task 1 (controlflow.asm)
 
 Description:
 This program takes user input and classifies it as positive, negative, or zero. It uses basic control flow constructs.
@@ -53,7 +55,7 @@ This will create an executable file controlflow.
 ```
 You will be prompted to enter a number. The program will print "POSITIVE", "NEGATIVE", or "ZERO" based on the input number.
 
-## 2. array.asm
+## Task 2
 Description:
 This program takes an array of integers as input, reverses it in place, and outputs the reversed array.
 
@@ -79,7 +81,7 @@ This will create an executable file array.
 ```
 You will be prompted to enter 5 integers. The program will output the reversed array.
 
-## 3. factorial.asm
+## 3. Task 3
 Description:
 This program calculates the factorial of a given number.
 
@@ -108,7 +110,7 @@ Copy code
 ```
 You will be prompted to enter a number. The program will output the factorial of that number.
 
-## 4. sensor.asm
+## 4. Task 4
 Description:
 This program simulates sensor readings and performs actions based on input values (e.g., if the value is above a threshold, it prints "ALERT").
 
