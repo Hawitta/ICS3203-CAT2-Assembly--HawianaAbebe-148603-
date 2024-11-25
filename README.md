@@ -29,6 +29,7 @@ sudo yum install binutils
 ```
 
 
+
 # Steps to Run Each Program
 
 ## Task 1 (controlflow.asm)
@@ -42,6 +43,7 @@ Steps to Run:
 ```bash
 nasm -f elf64 -o controlflow.o controlflow.asm
 ```
+
 This will create an object file controlflow.o.
 
 ### 2. Link the object file to create an executable:
@@ -57,6 +59,7 @@ This will create an executable file controlflow.
 ./controlflow
 ```
 You will be prompted to enter a number. The program will print "POSITIVE", "NEGATIVE", or "ZERO" based on the input number.
+
 
 ## Task 2
 Description:
@@ -85,6 +88,7 @@ This will create an executable file array.
 ```
 You will be prompted to enter 5 integers. The program will output the reversed array.
 
+
 ## 3. Task 3
 
 Description:
@@ -111,6 +115,8 @@ This will create an executable file factorial.
 ./factorial
 ```
 You will be prompted to enter a number. The program will output the factorial of that number.
+
+
 
 ## 4. Task 4
 
