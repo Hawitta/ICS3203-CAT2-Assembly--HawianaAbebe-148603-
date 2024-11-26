@@ -60,6 +60,11 @@ This will create an executable file controlflow.
 ```
 You will be prompted to enter a number. The program will print "POSITIVE", "NEGATIVE", or "ZERO" based on the input number.
 
+### Relevance of the jump instructions
+
+In the control flow program, specific jump instructions like `jg`, `jge`, and `jmp` were chosen to manage the flow of execution based on the sensor value effectively. The conditional jump instructions (`jg` and `jge`) allow the program to evaluate specific ranges of sensor input without redundant or unnecessary checks. For instance, `jg` (jump if greater) is used to handle the high water level scenario when the sensor value exceeds 80, bypassing lower-priority checks. Similarly, `jge` (jump if greater or equal) is applied to determine if the sensor value falls within the moderate water level range (50–80). These conditional jumps ensure efficient decision-making by only executing the relevant code block, reducing unnecessary branching.
+
+The unconditional jump (`jmp`) is used to redirect the program flow to a common section or skip over irrelevant instructions once a specific condition has been addressed. For example, after taking the appropriate actions for high or moderate water levels, the program jumps to the `normal_state` label to finalize its operations. This simplifies the logic, avoids repeated checks, and consolidates exit handling. These choices of jump instructions contribute to a structured and efficient program flow by ensuring that each condition leads to the intended actions without overlapping or redundant processing.
 
 ## Task 2
 Description:
@@ -115,7 +120,7 @@ This will create an executable file factorial.
 ./factorial
 ```
 
-In the factorial Subroutine
+###In the factorial Subroutine
 
 The factorial function modifies the stack to preserve and restore registers used for intermediate calculations.
 
