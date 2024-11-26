@@ -38,9 +38,9 @@ _start:
     ; Classify number
     mov rax, [number]          ; Load number
     cmp rax, 0                 ; Compare with zero
-    je .zero                   ; Jump if equal to zero
-    jl .negative               ; Jump if less than zero
-    jmp .positive              ; Unconditional jump
+    je .zero                   ; Executes if the comparison (cmp rax, 0) determines that rax is equal to zero.
+    jl .negative               ; Executes if the comparison (cmp rax, 0) determines that rax is less than zero.Jump if less than zero, Directs execution to the .negative label, where the message "NEGATIVE" is printed. This allows the program to handle negative numbers distinctly.
+    jmp .positive              ; Unconditional jump, Directly transitions to the .positive label, ensuring efficiency by bypassing unnecessary checks.
 
 .positive:
     ; Write "POSITIVE"
@@ -49,7 +49,7 @@ _start:
     mov rsi, positive_msg
     mov rdx, positive_msg_len
     syscall
-    jmp .exit                  ; Exit
+    jmp .exit                  ;  Avoids executing subsequent labels or logic after completing a specific case (e.g., positive, negative, or zero).
 
 .negative:
     ; Write "NEGATIVE"
@@ -81,14 +81,14 @@ string_to_int:
 .convert_loop:
     movzx rcx, byte [rsi]      ; Load next character
     cmp rcx, '-'               ; Check for negative sign
-    jne .check_digit           ; If not, check if digit
+    jne .check_digit           ;Ensures that if the character isn't '-', the program continues to check if it is a valid digit. This prevents skipping over valid numeric input and correctly identifies the sign of the number.
     inc rsi                    ; Skip negative sign
     inc rbx                    ; Set sign flag
     jmp .convert_loop
 
 .check_digit:
     cmp rcx, '0'               ; Check if less than '0'
-    jl .done                   ; If not a digit, finish
+    jl .done                   ; Used in the string_to_int function to check if a character is outside the range of valid ASCII digits ('0' to '9').
     cmp rcx, '9'               ; Check if greater than '9'
     jg .done                   ; If not a digit, finish
     sub rcx, '0'               ; Convert ASCII to integer
