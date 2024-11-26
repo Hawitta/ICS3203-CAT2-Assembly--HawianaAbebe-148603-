@@ -114,7 +114,9 @@ This will create an executable file factorial.
 ```bash
 ./factorial
 ```
+
 In the factorial Subroutine
+
 The factorial function modifies the stack to preserve and restore registers used for intermediate calculations.
 
 Saving Registers at the Start:
