@@ -143,6 +143,22 @@ This will create an executable file sensor.
 ```bash
 ./sensor
 ```
+Simulated Sensor Value:
+The sensor_value variable in the .data section represents the sensor reading. Its value (e.g., 65) is loaded into the AL register for evaluation.
+
+Decision-Making Process:
+The sensor value is compared against predefined thresholds using cmp and jg/jge instructions:
+High Water Level (Value > 80):
+If the sensor value exceeds 80, the program sets:
+alarm_control = 1 (to trigger the alarm).
+motor_control = 1 (to turn the motor ON).
+Messages are printed for both the alarm and the motor status.
+Moderate Water Level (50 ≤ Value ≤ 80):
+If the sensor value is between 50 and 80 inclusive, the program sets:
+motor_control = 0 (to turn the motor OFF).
+A message is printed indicating the motor is OFF.
+Low Water Level (Value < 50):
+If the sensor value is below 50, no actions are taken for the motor or alarm. The program proceeds to the normal state.    
 The program will print a sensor reading value, and based on this value, it will trigger different actions (e.g., if the reading is above a threshold, it will print "ALERT").
 
 # Troubleshooting
