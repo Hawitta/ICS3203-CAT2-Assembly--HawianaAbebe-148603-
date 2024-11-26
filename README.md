@@ -114,6 +114,31 @@ This will create an executable file factorial.
 ```bash
 ./factorial
 ```
+In the factorial Subroutine
+The factorial function modifies the stack to preserve and restore registers used for intermediate calculations.
+
+Saving Registers at the Start:
+
+```bash
+push rbp       ; Save the base pointer of the caller
+mov rbp, rsp   ; Set the current stack pointer as the new base pointer
+push rbx       ; Save rbx to preserve the current state for intermediate calculations
+```
+
+rbp is saved because it is used to manage the stack frame within the subroutine.
+rbx is saved because it holds the current value of rdi (n) for multiplication after the recursive call.
+Restoring Registers at the End:
+
+```bash
+pop rbx        ; Restore rbx to its previous state
+mov rsp, rbp   ; Restore the stack pointer to the previous base pointer
+pop rbp        ; Restore the base pointer of the caller
+ret            ; Return to the caller
+```
+
+This ensures the calling function’s state is not corrupted by the factorial logic.
+
+
 You will be prompted to enter a number. The program will output the factorial of that number.
 
 
@@ -147,18 +172,21 @@ Simulated Sensor Value:
 The sensor_value variable in the .data section represents the sensor reading. Its value (e.g., 65) is loaded into the AL register for evaluation.
 
 Decision-Making Process:
+
 The sensor value is compared against predefined thresholds using cmp and jg/jge instructions:
 High Water Level (Value > 80):
-If the sensor value exceeds 80, the program sets:
-alarm_control = 1 (to trigger the alarm).
-motor_control = 1 (to turn the motor ON).
-Messages are printed for both the alarm and the motor status.
+  If the sensor value exceeds 80, the program sets:
+    alarm_control = 1 (to trigger the alarm).
+    motor_control = 1 (to turn the motor ON).
+    Messages are printed for both the alarm and the motor status.
+    
 Moderate Water Level (50 ≤ Value ≤ 80):
-If the sensor value is between 50 and 80 inclusive, the program sets:
-motor_control = 0 (to turn the motor OFF).
-A message is printed indicating the motor is OFF.
+  If the sensor value is between 50 and 80 inclusive, the program sets:
+    motor_control = 0 (to turn the motor OFF).
+    A message is printed indicating the motor is OFF.
+    
 Low Water Level (Value < 50):
-If the sensor value is below 50, no actions are taken for the motor or alarm. The program proceeds to the normal state.    
+    If the sensor value is below 50, no actions are taken for the motor or alarm. The program proceeds to the normal state.    
 The program will print a sensor reading value, and based on this value, it will trigger different actions (e.g., if the reading is above a threshold, it will print "ALERT").
 
 # Troubleshooting
