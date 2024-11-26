@@ -91,7 +91,14 @@ This will create an executable file array.
 ```bash
 ./array
 ```
+
 You will be prompted to enter 5 integers. The program will output the reversed array.
+
+### Explanation of Reversal Process and Memory Handling Challenges
+
+Each step of the reversal process is carefully designed to directly manipulate the memory locations of the array, as the integers are stored in contiguous memory slots. The process begins by comparing the start index (`esi`) with the end index (`edi`) to determine when the loop should terminate. Inside the loop, swapping is performed using registers (`eax` and `edx`) to temporarily hold the values of `array[esi]` and `array[edi]`. These values are then exchanged directly in memory through indexed addressing. Incrementing `esi` and decrementing `edi` ensures that the swap operation gradually progresses from both ends of the array toward the center. The use of indexed addressing (`[ebx + esi*4]` and `[ebx + edi*4]`) allows efficient and precise access to memory locations in the array.
+
+Handling memory directly introduces challenges, particularly in managing indexed addressing and ensuring proper alignment of data. Since the array elements are 4 bytes each (32-bit integers), calculations for memory offsets (`esi*4` and `edi*4`) must be accurate to avoid accessing unintended data or causing segmentation faults. Additionally, care must be taken to avoid overwriting or corrupting data during the swap process, as improper use of registers or addressing modes can lead to unexpected results. Debugging such issues can be challenging, as memory manipulation errors may not always produce immediate visible failures, making careful use of comments and step-by-step verification essential.
 
 
 ## 3. Task 3
